@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', [HomeController::class, 'getCategories']);
+Route::get('/home', [HomeController::class, 'getData']);
+Route::get('/category/{id}', [ProductController::class, 'listProducts']);
+Route::get('/product/{id}', [ProductController::class, 'viewProducts']);

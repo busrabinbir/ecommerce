@@ -12,11 +12,22 @@ use Illuminate\Routing\Controller as BaseController;
 
 class HomeController extends Controller
 {
-    public function getCategories()
+    public function getData()
     {
-        $response = Http::get('https://gorest.co.in/public-api/categories');
-        $data = json_decode($response, true); //kategoriler alındı
+        //categories
+        $resCategories = Http::get('https://gorest.co.in/public-api/categories');
+        $categories = json_decode($resCategories, true);
 
-        return view('home', ['data' => $data]);
+        //products
+        $resProducts = Http::get('https://gorest.co.in/public-api/products');
+        $products = json_decode($resProducts, true);
+
+        $response = Http::get('https://gorest.co.in/public-api/product-categories');
+        $data = json_decode($response, true);
+       /* $categories = $data['data'];
+        $cat_id = $categories['category_id'];
+        dd($cat_id);*/
+
+        return view('home', compact('data','categories','products'));
     }
 }

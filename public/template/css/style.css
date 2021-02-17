@@ -1,0 +1,32 @@
+/*!
+ * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template/shop-homepage)
+ * Copyright 2013-2020 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-shop-homepage/blob/master/LICENSE)
+ */
+#content {
+  padding-top: 100px;
+}
+.nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none;
+    background-color: transparent !important;
+}
+.navbar-nav>li>a {
+    color: rgba(255,255,255,.5);
+    text-decoration: none;
+    line-height: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+.bg-dark {
+background-color: #040505 !important;
+
+}
+.navbar-nav.ml-auto{
+    color: rgba(255,255,255,.5);
+    text-decoration: none;
+    line-height: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    font-size: 18px !important;
+    padding-right: 30px !important;
+}
