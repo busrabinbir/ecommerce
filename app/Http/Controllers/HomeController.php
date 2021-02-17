@@ -10,9 +10,13 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 
-class Controller extends BaseController
+class HomeController extends Controller
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    public function getCategories()
+    {
+        $response = Http::get('https://gorest.co.in/public-api/categories');
+        $data = json_decode($response, true); //kategoriler alındı
 
-    
+        return view('home', ['data' => $data]);
+    }
 }
