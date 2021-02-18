@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Product;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -9,6 +10,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class HomeController extends Controller
 {
@@ -24,9 +26,6 @@ class HomeController extends Controller
 
         $response = Http::get('https://gorest.co.in/public-api/product-categories');
         $data = json_decode($response, true);
-       /* $categories = $data['data'];
-        $cat_id = $categories['category_id'];
-        dd($cat_id);*/
 
         return view('home', compact('data','categories','products'));
     }

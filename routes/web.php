@@ -17,5 +17,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/home', [HomeController::class, 'getData']);
-Route::get('/category/{id}', [ProductController::class, 'listProducts']);
-Route::get('/product/{id}', [ProductController::class, 'viewProducts']);
+Route::get('/category/{id}', [ProductController::class, 'listProducts'])->name('category'); //list products by category
+Route::get('/product/{id}', [ProductController::class, 'viewProducts'])->name('product'); //view product detail

@@ -1,32 +1,77 @@
-/*!
- * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template/shop-homepage)
- * Copyright 2013-2020 Start Bootstrap
- * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-shop-homepage/blob/master/LICENSE)
- */
-#content {
-  padding-top: 100px;
+body {
+    font-family: Roboto,sans-serif !important;
+    font-weight: 300;
+    line-height: 1.5;
+    font-size: 14px;
 }
+
+#content {
+    padding-top: 100px;
+    padding-bottom: 200px;
+}
+
+.navbar.scrolling-navbar {
+    background: rgb(255, 255, 255);
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 18px !important;
+    padding-right: 30px !important;
+    text-decoration: none;
+    box-shadow: 0 8px 8px -6px rgba(0,0,0,.5);
+}
+
+.navbar-brand{
+    font-size: large;
+    font-weight: bold;
+}
+
 .nav>li>a:focus, .nav>li>a:hover {
     text-decoration: none;
     background-color: transparent !important;
 }
-.navbar-nav>li>a {
-    color: rgba(255,255,255,.5);
-    text-decoration: none;
-    line-height: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-}
-.bg-dark {
-background-color: #040505 !important;
 
-}
-.navbar-nav.ml-auto{
-    color: rgba(255,255,255,.5);
+#dropdown{
     text-decoration: none;
     line-height: 0 !important;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
-    font-size: 18px !important;
-    padding-right: 30px !important;
+}
+
+.dropdown-menu{
+    font-size: 12px;
+    background-color: #4e555b;
+    border: 1px solid #062c33;
+}
+.dropdown-menu>li>a {
+    color: rgb(255, 255, 255);
+}
+.dropdown-menu>li>a:hover {
+    color: #062c33 !important;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+.btn{
+    font-size:15px !important;
+}
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 60px;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: #062c33;
 }
