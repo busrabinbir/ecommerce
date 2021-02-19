@@ -13,32 +13,45 @@ use App\Category;
 
 class ProductController extends Controller
 {
-    public function listProducts($id)
+    public function getCategories()
     {
         $resCategories = Http::get('https://gorest.co.in/public-api/categories');
-        $categories = json_decode($resCategories, true);
 
-        $resProducts = Http::get('https://gorest.co.in/public-api/products');
+        return json_decode($resCategories, true);
+    }
+
+    public function listProducts($id)
+    {
+        $categories = $this->getCategories();
+
+        $resProducts = Http::get('https://gorest.co.in/public-api/products?categories='. $id);
         $products = json_decode($resProducts, true);
-
-        $resCatProds = Http::get('https://gorest.co.in/public-api/product-categories');
-        $catToProds = json_decode($resCatProds, true);
 
         $cat_id = $id;
 
-        return view('product.index', compact('products','catToProds', 'categories', 'cat_id'));
+        return view('product.index', compact('products','categories', 'cat_id'));
     }
 
     public function viewProducts($id)
     {
-        $resCategories = Http::get('https://gorest.co.in/public-api/categories');
-        $categories = json_decode($resCategories, true);
+        $categories = $this->getCategories();
 
-        $resProducts = Http::get('https://gorest.co.in/public-api/products');
+        $resProducts = Http::get('https://gorest.co.in/public-api/products/'. $id);
         $product = json_decode($resProducts, true);
+        $item = $product['data'];
 
-        $prod_id = $id;
+        return view('product.view', compact('item','categories'));
+    }
 
-        return view('product.view', compact('product','categories','prod_id'));
+    public function pagination($id, $page)
+    {
+        $categories = $this->getCategories();
+
+        $resProducts = Http::get('https://gorest.co.in/public-api/products?categories='.$id.'&page='. $page);
+        $products = json_decode($resProducts, true);
+
+        $cat_id = $id;
+
+        return view('product.index', compact('categories','products', 'cat_id'));
     }
 }

@@ -14,19 +14,30 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class HomeController extends Controller
 {
-    public function getData()
+    public function getCategories()
     {
-        //categories
         $resCategories = Http::get('https://gorest.co.in/public-api/categories');
-        $categories = json_decode($resCategories, true);
 
-        //products
+        return json_decode($resCategories, true);
+    }
+
+    public function index()
+    {
+        $categories = $this->getCategories();
+
         $resProducts = Http::get('https://gorest.co.in/public-api/products');
         $products = json_decode($resProducts, true);
 
-        $response = Http::get('https://gorest.co.in/public-api/product-categories');
-        $data = json_decode($response, true);
+        return view('home', compact('categories','products'));
+    }
 
-        return view('home', compact('data','categories','products'));
+    public function pagination($page)
+    {
+        $categories = $this->getCategories();
+
+        $resProducts = Http::get('https://gorest.co.in/public-api/products?page='. $page);
+        $products = json_decode($resProducts, true);
+
+        return view('home', compact('categories','products'));
     }
 }

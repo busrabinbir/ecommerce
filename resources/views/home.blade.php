@@ -9,7 +9,7 @@
                     @foreach($products['data'] as $product)
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="card h-100">
-                                <a href="#"><img class="card-img-top" src="{{$product['image']}}" alt=""></a>
+                                <a href="/product/{{$product['id']}}"><img class="card-img-top" src="{{$product['image']}}" alt=""></a>
                                 <div class="card-body">
                                     <h4 class="card-title">
                                         <a href="/product/{{$product['id']}}">{{$product['name']}}</a>
@@ -24,6 +24,16 @@
                     @endforeach
                 </div>
                 <!-- /.row -->
+                <!-- Pagination -->
+                <div class="row justify-content-center">
+                    <ul class="pagination">
+                        @foreach($products['meta'] as $page)
+                            @for($i=1;$i<=$page['pages'];$i++)
+                                <li class="page-item"><a class="page-link" href="/home/page={{$i}}">{{$i}}</a></li>
+                            @endfor
+                        @endforeach
+                    </ul>
+                </div>
             </div>
             <!-- /.col-lg-9 -->
         </div>

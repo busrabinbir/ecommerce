@@ -5,8 +5,6 @@
         <div class="row justify-content-center">
             <div class="col-lg-9">
                 <div class="row">
-                    @foreach($product['data'] as $item)
-                        @if($item['id'] == $prod_id)
                             <div class="col-md-5 mb-4 mb-md-0">
                                 <div class="view zoom z-depth-2 rounded">
                                     <img class="img-fluid w-100" src="{{$item['image']}}" alt="Sample">
@@ -44,8 +42,6 @@
                                         class="fas fa-shopping-cart pr-2"></i>Add to cart
                                 </button>
                             </div>
-                        @endif
-                    @endforeach
                 </div>
                 <!-- /.row -->
             </div>
