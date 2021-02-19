@@ -18,15 +18,15 @@ class ProductController extends Controller
         $resCategories = Http::get('https://gorest.co.in/public-api/categories');
         $categories = json_decode($resCategories, true);
 
-        $resProduct = Http::get('https://gorest.co.in/public-api/products');
-        $products = json_decode($resProduct, true);
+        $resProducts = Http::get('https://gorest.co.in/public-api/products');
+        $products = json_decode($resProducts, true);
 
-        $resCatProd = Http::get('https://gorest.co.in/public-api/product-categories');
-        $catToProd = json_decode($resCatProd, true);
+        $resCatProds = Http::get('https://gorest.co.in/public-api/product-categories');
+        $catToProds = json_decode($resCatProds, true);
 
         $cat_id = $id;
 
-        return view('product.index', compact('products','catToProd', 'categories', 'cat_id'));
+        return view('product.index', compact('products','catToProds', 'categories', 'cat_id'));
     }
 
     public function viewProducts($id)
@@ -34,8 +34,8 @@ class ProductController extends Controller
         $resCategories = Http::get('https://gorest.co.in/public-api/categories');
         $categories = json_decode($resCategories, true);
 
-        $resProd = Http::get('https://gorest.co.in/public-api/products');
-        $product = json_decode($resProd, true);
+        $resProducts = Http::get('https://gorest.co.in/public-api/products');
+        $product = json_decode($resProducts, true);
 
         $prod_id = $id;
 

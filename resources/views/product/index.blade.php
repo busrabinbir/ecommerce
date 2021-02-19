@@ -6,10 +6,10 @@
         <div class="row justify-content-center">
             <div class="col-lg-9">
                 <div class="row">
-                    @foreach($catToProd['data'] as $product)
-                        @if($product['category_id'] == $cat_id)
+                    @foreach($catToProds['data'] as $catToProd)
+                        @if($catToProd['category_id'] == $cat_id)
                             @foreach($products['data'] as $item)
-                                    @if($product['product_id'] == $item['id'])
+                                    @if($catToProd['product_id'] == $item['id'])
                                         <div class="col-lg-4 col-md-6 mb-4">
                                             <div class="card h-100">
                                                 <a href="/product/{{$item['id']}}"><img class="card-img-top"
