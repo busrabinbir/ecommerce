@@ -29,7 +29,7 @@
                     <ul class="pagination">
                         @foreach($products['meta'] as $page)
                             @for($i=1;$i<=$page['pages'];$i++)
-                                <li class="page-item"><a class="page-link" href="/home/page={{$i}}">{{$i}}</a></li>
+                                <li class="page-item"><a class="page-link" href="/home/{{$i}}">{{$i}}</a></li>
                             @endfor
                         @endforeach
                     </ul>
